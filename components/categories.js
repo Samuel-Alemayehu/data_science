@@ -4,14 +4,21 @@ import dynamic from "next/dynamic";
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 export default function FilterByCategory() {
   const [data, setData] = useState(data_sets);
-
+  console.log(data[54]);
   const datas = {
     options: {
       chart: {
         id: "basic-bar",
       },
       xaxis: {
-        categories: ["Electronics", "Beauty", "Books", "Clothing", "Toys"],
+        categories: [
+          "Electronics",
+          "Beauty",
+          "Books",
+          "Clothing",
+          "Toys",
+          "Missing category",
+        ],
       },
     },
     series: [
@@ -24,6 +31,7 @@ export default function FilterByCategory() {
           data.filter((data) => data["Product Category"] === "Books").length,
           data.filter((data) => data["Product Category"] === "Clothing").length,
           data.filter((data) => data["Product Category"] === "Toys").length,
+          data.filter((data) => data["Product Category"] === "").length,
         ],
       },
     ],

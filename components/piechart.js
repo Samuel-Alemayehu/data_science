@@ -25,7 +25,14 @@ export default function PieChart() {
   //   console.log(filteredData);
   const datas = {
     options: {
-      labels: ["Electronics", "Beauty", "Books", "Clothing", "Toys"],
+      labels: [
+        "Electronics",
+        "Beauty",
+        "Books",
+        "Clothing",
+        "Toys",
+        "Missing Category",
+      ],
     },
     series: [
       filteredData.filter((data) => data["Product Category"] === "Electronics")
@@ -37,6 +44,7 @@ export default function PieChart() {
       filteredData.filter((data) => data["Product Category"] === "Clothing")
         .length,
       filteredData.filter((data) => data["Product Category"] === "Toys").length,
+      filteredData.filter((data) => data["Product Category"] === "").length,
     ],
   };
 
